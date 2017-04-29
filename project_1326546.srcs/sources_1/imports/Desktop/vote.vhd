@@ -59,6 +59,7 @@ begin
         s110 := 0;
         s111 := 0;
         output <= '0';
+        temp <= "000";
     elsif rising_edge(clk) then
         if count <= 10 then
             case A is
@@ -82,6 +83,25 @@ begin
 		    NULL;
             end case;
             count := count + 1;
+            if count = 10 then
+                    if s000 > s001 and s000 > s010 and s000 > s011 and s000 > s100 and s000 > s101 and s000 > s110 and s000 > s111 then
+                        temp <= "000";
+                    elsif s001 > s000 and s001 > s010 and s001 > s011 and s001 > s100 and s001 > s101 and s001 > s110 and s001 > s111 then
+                        temp <= "001";
+                    elsif s010 > s000 and s010 > s001 and s010 > s011 and s010 > s100 and s010 > s101 and s010 > s110 and s010 > s111 then
+                        temp <= "010";
+                    elsif s011 > s000 and s011 > s001 and s011 > s010 and s011 > s100 and s011 > s101 and s011 > s110 and s011 > s111 then
+                        temp <= "011";
+                    elsif s100 > s000 and s100 > s001 and s100 > s010 and s100 > s011 and s100 > s101 and s100 > s110 and s100 > s111 then
+                        temp <= "100";
+                    elsif s101 > s000 and s101 > s001 and s101 > s010 and s101 > s011 and s101 > s100 and s101 > s110 and s101 > s111 then
+                        temp <= "101";
+                    elsif s110 > s000 and s110 > s001 and s110 > s010 and s110 > s011 and s110 > s100 and s110 > s101 and s110 > s111 then
+                        temp <= "110";
+                    else temp <= "111";
+                    end if;
+                     
+                end if;
         else
             count := 0;
             s000 := 0;
@@ -93,29 +113,12 @@ begin
             s110 := 0;
             s111 := 0;
             output <= '0';
-        end if;
-    end if;
-    if count = 10 then
-        if s000 > s001 and s000 > s010 and s000 > s011 and s000 > s100 and s000 > s101 and s000 > s110 and s000 > s111 then
-            temp <= "000";
-        elsif s001 > s000 and s001 > s010 and s001 > s011 and s001 > s100 and s001 > s101 and s001 > s110 and s001 > s111 then
-            temp <= "001";
-        elsif s010 > s000 and s010 > s001 and s010 > s011 and s010 > s100 and s010 > s101 and s010 > s110 and s010 > s111 then
-            temp <= "010";
-        elsif s011 > s000 and s011 > s001 and s011 > s010 and s011 > s100 and s011 > s101 and s011 > s110 and s011 > s111 then
-            temp <= "011";
-        elsif s100 > s000 and s100 > s001 and s100 > s010 and s100 > s011 and s100 > s101 and s100 > s110 and s100 > s111 then
-            temp <= "100";
-        elsif s101 > s000 and s101 > s001 and s101 > s010 and s101 > s011 and s101 > s100 and s101 > s110 and s101 > s111 then
-            temp <= "101";
-        elsif s110 > s000 and s110 > s001 and s110 > s010 and s110 > s011 and s110 > s100 and s110 > s101 and s110 > s111 then
-            temp <= "110";
-        else temp <= "111";
+            --result <= "000";
         end if;
     end if;
     
 end process;
-
 result<=temp;
+
 end Behavioral;
 

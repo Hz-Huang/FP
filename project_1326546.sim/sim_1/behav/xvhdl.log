@@ -1,4 +1,4 @@
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/hhuang75.EECS/Desktop/vote.vhd" into library xil_defaultlib
+INFO: [VRFC 10-163] Analyzing VHDL file "H:/EECS_443/Huang/FP/project_1326546.srcs/sources_1/imports/Desktop/vote.vhd" into library xil_defaultlib
 INFO: [VRFC 10-307] analyzing entity vote
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/hhuang75.EECS/Desktop/TB.vhd" into library xil_defaultlib
+INFO: [VRFC 10-163] Analyzing VHDL file "H:/EECS_443/Huang/FP/project_1326546.srcs/sim_1/imports/Desktop/TB.vhd" into library xil_defaultlib
 INFO: [VRFC 10-307] analyzing entity TB

@@ -45,36 +45,132 @@ component vote is
            result: out STD_LOGIC_VECTOR (2 downto 0));
 end component;
 
-signal clk, reset, output: STD_LOGIC;
-signal A, result: STD_LOGIC_VECTOR(2 downto 0);
+signal clk, reset, output: STD_LOGIC:='0';
+signal A, result: STD_LOGIC_VECTOR(2 downto 0):="000";
+constant clk_period : time := 100 ns;    
 
 
 begin
 
 mapping: vote port map(A, clk, reset, output, result);
 
-process
-begin
-    reset <= '1'; A <= "000"; clk <= '0'; wait for 50 ns;
-    reset <= '0'; A <= "001"; clk <= '1'; wait for 50 ns;  --1
-    clk <= '0'; wait for 50 ns;
-    A <= "010"; clk <= '1'; wait for 50 ns;  --2
-    clk <= '0'; wait for 50 ns;
-    A <= "001"; clk <= '1'; wait for 50 ns;  --3
-    clk <= '0'; wait for 50 ns;
-    A <= "111"; clk <= '1'; wait for 50 ns;  --4
-    clk <= '0'; wait for 50 ns;
-    A <= "001"; clk <= '1'; wait for 50 ns;  --5
-    clk <= '0'; wait for 50 ns;
-    A <= "110"; clk <= '1'; wait for 50 ns;  --6
-    clk <= '0'; wait for 50 ns;
-    A <= "001"; clk <= '1'; wait for 50 ns;  --7
-    clk <= '0'; wait for 50 ns;
-    A <= "001"; clk <= '1'; wait for 50 ns;  --8
-    clk <= '0'; wait for 50 ns;
-    A <= "001"; clk <= '1'; wait for 50 ns;  --9
-    clk <= '0'; wait for 50 ns;
-    A <= "110"; clk <= '1'; wait for 50 ns;  --10
+  clk_process :process
+   begin
+		clk <= '0';
+		wait for clk_period/2;
+		clk <= '1';
+		wait for clk_period/2;
+   end process;
+
+Stim :process
+begin 
+
+    reset <= '1'; 
+    A <= "000"; 
+    wait for clk_period/2;
+    
+    reset <= '0'; 
+    A <= "001"; 
+    wait for clk_period/2;  --1
+
+    wait for clk_period/2;
+    
+    A <= "010"; 
+    wait for clk_period/2;  --2
+
+    wait for clk_period/2;
+    
+    A <= "001"; 
+    wait for clk_period/2;  --3
+
+    wait for clk_period/2;
+    
+    A <= "111"; 
+    wait for clk_period/2;  --4
+    
+    wait for clk_period/2;
+    
+    A <= "001"; 
+    wait for clk_period/2;  --5
+     
+    wait for clk_period/2;
+    
+    A <= "110"; 
+    wait for clk_period/2;  --6
+     
+    wait for clk_period/2;
+    
+    A <= "001"; 
+    wait for clk_period/2;  --7
+     
+    wait for clk_period/2;
+    
+    A <= "001";  
+    wait for clk_period/2;  --8
+     
+    wait for clk_period/2;
+    
+    A <= "001"; 
+    wait for clk_period/2;  --9
+    
+    wait for clk_period/2;
+    
+    A <= "110";  
+    wait for clk_period/2;  --10
+    
+    reset <= '1'; 
+        A <= "000"; 
+        wait for clk_period/2;
+        
+        reset <= '0'; 
+        A <= "101"; 
+        wait for clk_period/2;  --11
+    
+        wait for clk_period/2;
+        
+        A <= "011"; 
+        wait for clk_period/2;  --12
+    
+        wait for clk_period/2;
+        
+        A <= "010"; 
+        wait for clk_period/2;  --13
+    
+        wait for clk_period/2;
+        
+        A <= "111"; 
+        wait for clk_period/2;  --14
+        
+        wait for clk_period/2;
+        
+        A <= "011"; 
+        wait for clk_period/2;  --15
+         
+        wait for clk_period/2;
+        
+        A <= "111"; 
+        wait for clk_period/2;  --16
+         
+        wait for clk_period/2;
+        
+        A <= "001"; 
+        wait for clk_period/2;  --17
+         
+        wait for clk_period/2;
+        
+        A <= "000";  
+        wait for clk_period/2;  --18
+         
+        wait for clk_period/2;
+        
+        A <= "001"; 
+        wait for clk_period/2;  --19
+        
+        wait for clk_period/2;
+        
+        A <= "101";  
+        wait for clk_period/2;  --20            
+    
     wait;
 end process;
     
