@@ -41,18 +41,20 @@ component vote is
     Port ( A : in STD_LOGIC_VECTOR (2 downto 0);
            clk : in STD_LOGIC;
            reset : in STD_LOGIC;
-           output : out STD_LOGIC;
-           result: out STD_LOGIC_VECTOR (2 downto 0));
+           undone: out STD_LOGIC := '1'; -- whether or not the program has a result
+           done  : out STD_LOGIC := '0';
+           result : out STD_LOGIC_VECTOR (2 downto 0));
 end component;
 
 signal clk, reset, output: STD_LOGIC:='0';
+signal done,undone  :std_logic;
 signal A, result: STD_LOGIC_VECTOR(2 downto 0):="000";
 constant clk_period : time := 100 ns;    
 
 
 begin
 
-mapping: vote port map(A, clk, reset, output, result);
+mapping: vote port map(A, clk, reset, undone,done, result);
 
   clk_process :process
    begin
