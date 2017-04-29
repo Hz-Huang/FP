@@ -42,8 +42,10 @@
   <FileSets Version="1" Minor="31">
     <FileSet Name="sources_1" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
       <Filter Type="Srcs"/>
-      <File Path="C:/Users/hhuang75.EECS/Desktop/vote.vhd">
+      <File Path="$PSRCDIR/sources_1/imports/Desktop/vote.vhd">
         <FileInfo>
+          <Attr Name="ImportPath" Val="C:/Users/hhuang75.EECS/Desktop/vote.vhd"/>
+          <Attr Name="ImportTime" Val="1493495965"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
@@ -61,8 +63,10 @@
       </Config>
     </FileSet>
     <FileSet Name="sim_1" Type="SimulationSrcs" RelSrcDir="$PSRCDIR/sim_1">
-      <File Path="C:/Users/hhuang75.EECS/Desktop/TB.vhd">
+      <File Path="$PSRCDIR/sim_1/imports/Desktop/TB.vhd">
         <FileInfo>
+          <Attr Name="ImportPath" Val="C:/Users/hhuang75.EECS/Desktop/TB.vhd"/>
+          <Attr Name="ImportTime" Val="1493495660"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
